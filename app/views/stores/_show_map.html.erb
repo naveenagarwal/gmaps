@@ -1,0 +1,54 @@
+<p>Generating map</p>
+
+<div id ="map_canvas" style="height:500px; width:600px;">
+</div>
+
+
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyCNv0Q8Eb5ZMJ2WsT9o0U3A-JKARvIneyI&sensor=false"></script>
+
+<script>
+/*
+function initialize() {
+        var mapOptions = {
+          center: new google.maps.LatLng(-34.397, 150.644),
+          zoom: 8,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById("map_canvas"),
+             mapOptions);
+      }
+
+*/
+    $(document).ready(function(){
+        // initialize your map as normal
+        var options = {
+            center: new google.maps.LatLng(39.83, -98.58),
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            zoom: 8
+        };
+        var map = new google.maps.Map(document.getElementById('map_canvas'), options);
+
+        //var coords = [
+        //    [54.97784, -1.612916],
+        //    [55.378051, -3.435973]
+            // and additional coordinates, just add a new item
+        //];
+
+        // iterate over your coords array
+        <% @stores.each do |store| %>
+            <% next if store.latitude.blank? || store.longitude.blank? %>
+        //for (var i = 0; i < coords.length; i++) {
+            // create a closure for your latitude/longitude pair
+            (function() {
+                // set the location...
+                var latLng = new google.maps.LatLng(<%= store.latitude %>, <%= store.longitude %>);
+                // ...and add the Marker to your map
+                var marker = new google.maps.Marker({
+                    position: latLng,
+                    map: map
+                });
+            })();
+        //};
+        <% end %>
+    });
+</script> 
