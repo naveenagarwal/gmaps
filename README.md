@@ -7,6 +7,7 @@ Right now it's a rails application
 
 Create a database.yml  file in your config directory, using mysql, postgres, sqlite etc
 Run bundle install
+Run the migration
 Start the server and there you go
 
 Start adding the store locations in the database and see them on map
