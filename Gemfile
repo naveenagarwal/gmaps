@@ -41,3 +41,7 @@ group :development do
   gem 'debugger'
   gem 'quiet_assets'
 end
+
+group :test, :development do
+  gem 'rspec-rails'
+end
