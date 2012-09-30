@@ -5,9 +5,9 @@ gem 'rails', '3.2.8'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'mysql2'
+gem 'pg'
 gem 'geokit'
-
+gem 'thin'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -19,7 +19,7 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
   gem "twitter-bootstrap-rails"
-  
+
 end
 
 gem 'jquery-rails'
@@ -36,7 +36,7 @@ gem 'jquery-rails'
 # Deploy with Capistrano
 # gem 'capistrano'
 
-group :development do 
+group :development do
   # To use debugger
   gem 'debugger'
   gem 'quiet_assets'
